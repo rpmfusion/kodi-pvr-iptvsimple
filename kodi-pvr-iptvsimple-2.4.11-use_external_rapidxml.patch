@@ -1,0 +1,12 @@
+diff -up ./src/PVRIptvData.cpp.orig ./src/PVRIptvData.cpp
+--- ./src/PVRIptvData.cpp.orig	2017-02-14 16:20:44.000000000 +0100
++++ ./src/PVRIptvData.cpp	2017-04-26 17:19:55.295959975 +0200
+@@ -28,7 +28,7 @@
+ #include <map>
+ #include <stdexcept>
+ #include "zlib.h"
+-#include "rapidxml/rapidxml.hpp"
++#include <rapidxml.h>
+ #include "PVRIptvData.h"
+ #include "p8-platform/util/StringUtils.h"
+ 
