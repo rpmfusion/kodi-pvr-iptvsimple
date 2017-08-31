@@ -10,7 +10,7 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
 Version:        2.4.11
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Kodi's IPTV Simple client addon
 
 Group:          Applications/Multimedia
@@ -63,6 +63,9 @@ cp -p %{SOURCE1} .
 
 
 %changelog
+* Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1:2.4.11-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Wed Apr 26 2017 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:2.4.11-1
 - Update to latest stable release for Kodi 17
 
