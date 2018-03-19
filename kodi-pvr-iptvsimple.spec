@@ -1,26 +1,23 @@
-%global commit 2a649d7e21b64c4fa4a8b14c2cc139261eebc7e8
-%global short_commit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20170817
+%global commit 933a5c4043ffba9ac05d4f0a4687bc8f61d5a9a2
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+%global commitdate 20180205
 
 %global kodi_addon pvr.iptvsimple
-%global kodi_version 17.0
+%global kodi_version 18.0
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        2.4.14
-Release:        2%{?dist}
-Summary:        Kodi's IPTV Simple client addon
+Version:        3.4.2
+Release:        1%{?dist}
+Summary:        Simple IPTV PVR for Kodi
 
-Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
-Source0:        https://github.com/kodi-pvr/%{kodi_addon}/archive/%{short_commit}/%{name}-%{short_commit}.tar.gz
-# GPLv2 license file
-Source1:        http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+Source0:        https://github.com/kodi-pvr/%{kodi_addon}/archive/%{shortcommit}/%{kodi_addon}-%{shortcommit}.tar.gz
 # Use external rapidxml library
-Patch0:         %{name}-2.4.11-use_external_rapidxml.patch
+Patch0:         %{name}-3.4.2-use_external_rapidxml.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -33,8 +30,7 @@ Requires:       kodi >= %{kodi_version}
 ExclusiveArch:  i686 x86_64
 
 %description
-Kodi PVR addon for IPTV support, with M3U playlists, streaming of live TV for
-multicast/unicast sources, listening to radio channels and EPG.
+%{summary}.
 
 
 %prep
@@ -43,11 +39,9 @@ multicast/unicast sources, listening to radio channels and EPG.
 # Drop bundled rapidxml library
 rm -r lib/rapidxml/
 
-cp -p %{SOURCE1} .
-
 
 %build
-%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir}/kodi/ .
+%cmake .
 %make_build
 
 
@@ -57,12 +51,14 @@ cp -p %{SOURCE1} .
 
 %files
 %doc README.md %{kodi_addon}/changelog.txt
-%license gpl-2.0.txt
 %{_libdir}/kodi/addons/%{kodi_addon}/
 %{_datadir}/kodi/addons/%{kodi_addon}/
 
 
 %changelog
+* Fri Mar 16 2018 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:3.4.2-1
+- Update to latest stable release for Kodi 18
+
 * Thu Mar 01 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 1:2.4.14-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
