@@ -1,6 +1,6 @@
-%global commit 933a5c4043ffba9ac05d4f0a4687bc8f61d5a9a2
+%global commit e8effadebc349d38f7b8a2c190baa72ebf74b6fe
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate 20180205
+%global commitdate 20180825
 
 %global kodi_addon pvr.iptvsimple
 %global kodi_version 18.0
@@ -9,8 +9,8 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        3.4.2
-Release:        2%{?dist}
+Version:        3.5.3
+Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
 License:        GPLv2+
@@ -27,7 +27,7 @@ BuildRequires:  platform-devel
 BuildRequires:  rapidxml-devel
 BuildRequires:  zlib-devel
 Requires:       kodi >= %{kodi_version}
-ExclusiveArch:  i686 x86_64
+ExclusiveArch:  i686 x86_64 aarch64
 
 %description
 %{summary}.
@@ -56,6 +56,10 @@ rm -r lib/rapidxml/
 
 
 %changelog
+* Sat Sep 01 2018 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:3.5.3-1
+- Update to 3.5.3
+- Enable aarch64 build
+
 * Thu Jul 26 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:3.4.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
