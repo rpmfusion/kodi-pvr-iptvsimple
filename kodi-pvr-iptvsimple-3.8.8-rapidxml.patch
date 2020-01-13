@@ -1,0 +1,24 @@
+diff -up ./FindRapidxml.cmake.orig ./FindRapidxml.cmake
+--- ./FindRapidxml.cmake.orig	2019-11-28 16:20:32.000000000 +0100
++++ ./FindRapidxml.cmake	2020-01-09 16:37:25.659943579 +0100
+@@ -4,7 +4,7 @@
+ # RAPIDXML_FOUND - system has rapidxml
+ # RAPIDXML_INCLUDE_DIRS - the rapidxml include directory
+ 
+-find_path(RAPIDXML_INCLUDE_DIRS rapidxml/rapidxml.hpp)
++find_path(RAPIDXML_INCLUDE_DIRS rapidxml.h)
+ 
+ include(FindPackageHandleStandardArgs)
+ find_package_handle_standard_args(Rapidxml DEFAULT_MSG RAPIDXML_INCLUDE_DIRS)
+diff -up ./src/PVRIptvData.cpp.orig ./src/PVRIptvData.cpp
+--- ./src/PVRIptvData.cpp.orig	2019-11-28 16:20:32.000000000 +0100
++++ ./src/PVRIptvData.cpp	2020-01-09 16:37:25.659943579 +0100
+@@ -35,7 +35,7 @@
+ #include <string>
+ 
+ #include "zlib.h"
+-#include "rapidxml/rapidxml.hpp"
++#include "rapidxml.h"
+ #include "PVRIptvData.h"
+ #include "p8-platform/util/StringUtils.h"
+ #include "client.h"
