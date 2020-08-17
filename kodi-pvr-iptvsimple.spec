@@ -2,6 +2,8 @@
 %global kodi_version 18.0
 %global kodi_codename Leia
 
+%undefine __cmake_in_source_build
+
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
@@ -16,7 +18,7 @@ Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{versi
 # Fix rapidxml detection
 Patch0:         %{name}-3.8.8-rapidxml.patch
 
-BuildRequires:  cmake
+BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  kodi-devel >= %{kodi_version}
 BuildRequires:  kodi-platform-devel >= %{kodi_version}
@@ -35,12 +37,12 @@ ExcludeArch:    %{power64} ppc64le
 
 
 %build
-%cmake .
-%make_build
+%cmake3
+%cmake3_build
 
 
 %install
-%make_install
+%cmake3_install
 
 
 %files
