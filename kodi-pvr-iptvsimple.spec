@@ -1,30 +1,25 @@
 %global kodi_addon pvr.iptvsimple
-%global kodi_version 18.0
-%global kodi_codename Leia
-
-%undefine __cmake_in_source_build
+%global kodi_version 19.0
+%global kodi_codename Matrix
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        3.8.8
-Release:        3%{?dist}
+Version:        6.3.0
+Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
 License:        GPLv2+
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
 Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{version}.tar.gz
-# Fix rapidxml detection
-Patch0:         %{name}-3.8.8-rapidxml.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  kodi-devel >= %{kodi_version}
-BuildRequires:  kodi-platform-devel >= %{kodi_version}
-BuildRequires:  platform-devel
-BuildRequires:  rapidxml-devel
-BuildRequires:  zlib-devel
+BuildRequires:  pkgconfig(p8-platform)
+BuildRequires:  pkgconfig(pugixml)
+BuildRequires:  pkgconfig(zlib)
 Requires:       kodi >= %{kodi_version}
 ExcludeArch:    %{power64} ppc64le
 
@@ -47,11 +42,15 @@ ExcludeArch:    %{power64} ppc64le
 
 %files
 %doc README.md %{kodi_addon}/changelog.txt
+%license LICENSE.md
 %{_libdir}/kodi/addons/%{kodi_addon}/
 %{_datadir}/kodi/addons/%{kodi_addon}/
 
 
 %changelog
+* Thu Aug 20 2020 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:6.3.0-1
+- Update to 6.3.0 (switch to Matrix branch)
+
 * Tue Aug 18 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:3.8.8-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
