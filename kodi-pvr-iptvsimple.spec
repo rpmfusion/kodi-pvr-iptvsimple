@@ -6,7 +6,7 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        7.3.0
+Version:        7.6.7
 Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
@@ -17,9 +17,9 @@ Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{versi
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  kodi-devel >= %{kodi_version}
-BuildRequires:  pkgconfig(p8-platform)
 BuildRequires:  pkgconfig(pugixml)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  xz-devel
 Requires:       kodi >= %{kodi_version}
 ExcludeArch:    %{power64} ppc64le
 
@@ -48,6 +48,9 @@ ExcludeArch:    %{power64} ppc64le
 
 
 %changelog
+* Sun Jul 11 2021 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:7.6.7-1
+- Update to 7.6.7
+
 * Fri Jan 29 2021 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:7.3.0-1
 - Update to 7.3.0
 
