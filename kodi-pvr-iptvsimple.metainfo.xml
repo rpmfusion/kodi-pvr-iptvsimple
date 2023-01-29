@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>kodi-peripheral-joystick</id>
+  <extends>kodi.desktop</extends>
+  <name>Joystick Support</name>
+  <summary>Kodi Joystick Library</summary>
+  <url type="homepage">https://github.com/xbmc/peripheral.joystick/</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <update_contact>melmorabity@fedoraproject.org</update_contact>
+</component>
