@@ -6,8 +6,8 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        7.6.7
-Release:        4%{?dist}
+Version:        19.2.2
+Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
 License:        GPLv2+
@@ -48,6 +48,9 @@ ExcludeArch:    %{power64} ppc64le
 
 
 %changelog
+* Sun Jan 29 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:19.2.2-1
+- Update to 19.2.2
+
 * Sun Aug 07 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1:7.6.7-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
   5.1
