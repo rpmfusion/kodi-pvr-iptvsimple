@@ -6,7 +6,7 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        20.9.1
+Version:        20.10.1
 Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
@@ -24,7 +24,8 @@ BuildRequires:  pkgconfig(zlib)
 BuildRequires:  xz-devel
 Requires:       kodi >= %{kodi_version}
 Requires:       kodi-inputstream-adaptive%{?_isa} >= %{kodi_version}
-Requires:       kodi-inputstream-ffmpegdirect%{?_isa} >= %{kodi_version}
+# TODO: uncomment once kodi-inputstream-ffmpegdirect is packaged (see RFBZ #6387)
+# Requires:       kodi-inputstream-ffmpegdirect%%{?_isa} >= %%{kodi_version}
 Requires:       kodi-inputstream-rtmp%{?_isa} >= %{kodi_version}
 ExcludeArch:    %{power64}
 
@@ -61,6 +62,10 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Fri May 19 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:20.10.1-1
+- Update to 20.10.1
+- Fix Requires (RFBZ #6656)
+
 * Mon Mar 27 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:20.9.1-1
 - Update to 20.9.1
 
