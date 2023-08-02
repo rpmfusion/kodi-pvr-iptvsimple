@@ -7,7 +7,7 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
 Version:        20.10.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
 License:        GPL-2.0-or-later
@@ -62,6 +62,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Wed Aug 02 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1:20.10.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
+
 * Fri May 19 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:20.10.1-1
 - Update to 20.10.1
 - Fix Requires (RFBZ #6656)
