@@ -6,7 +6,7 @@ Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        20.10.1
+Version:        20.11.0
 Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
@@ -62,6 +62,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Mon Sep 25 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:20.11.0-1
+- Update to 20.11.0
+
 * Fri May 19 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:20.10.1-1
 - Update to 20.10.1
 - Fix Requires (RFBZ #6656)
