@@ -1,12 +1,12 @@
 %global kodi_addon pvr.iptvsimple
-%global kodi_version 20
-%global kodi_codename Nexus
+%global kodi_version 21
+%global kodi_codename Omega
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        20.13.0
+Version:        21.8.2
 Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
@@ -62,6 +62,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Thu Mar 14 2024 Mohamed El Morabity <melmorabity@fedoraproject.org> - 1:21.8.2-1
+- Update to 21.8.2
+
 * Sat Feb 17 2024 Leigh Scott <leigh123linux@gmail.com> - 1:20.13.0-1
 - Update to 20.13.0
 
