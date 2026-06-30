@@ -1,13 +1,13 @@
 %global kodi_addon pvr.iptvsimple
-%global kodi_version 21
-%global kodi_codename Omega
+%global kodi_version 22.0
+%global kodi_codename Piers
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 # Use Epoch to manage upgrades from older upstream
 # (https://github.com/opdenkamp/xbmc-pvr-addons/)
 Epoch:          1
-Version:        21.10.2
-Release:        3%{?dist}
+Version:        22.6.4
+Release:        1%{?dist}
 Summary:        Simple IPTV PVR for Kodi
 
 License:        GPL-2.0-or-later
@@ -46,11 +46,11 @@ ExcludeArch:    %{power64}
 %cmake_install
 
 # Install AppData file
-install -Dpm 0644 %{SOURCE1} $RPM_BUILD_ROOT%{_metainfodir}/%{name}.metainfo.xml
+install -Dpm 0644 %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 
 %check
-appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.metainfo.xml
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 
 %files
@@ -62,6 +62,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Tue Jun 30 2026 Leigh Scott <leigh123linux@gmail.com> - 1:22.6.4-1
+- Update for kodi 22
+
 * Mon Feb 02 2026 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1:21.10.2-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
 
